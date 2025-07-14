@@ -1,7 +1,8 @@
 _output_dir: "{{ project_slug }}"
 project_slug:
-  type: slug
-  default: "skeleton"
+  type: str
+  default: "meu-projeto"
+  help: "snake_case to folders and imports"
 docker_image:
   type: str
   default: "python:3.12-slim"
