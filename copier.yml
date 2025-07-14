@@ -1,0 +1,25 @@
+_output_dir: "{{ project_slug }}"
+project_slug:
+  type: slug
+  default: "skeleton"
+docker_image:
+  type: str
+  default: "python:3.12-slim"
+api_port:
+  type: int
+  default: 8000
+postgres_version:
+  type: str
+  default: "15"
+db_user:
+  type: str
+  default: "admin"
+db_password:
+  type: str
+  default: "admin"
+db_name:
+  type: str
+  default: "skeletondb"
+db_port:
+  type: int
+  default: 5432
