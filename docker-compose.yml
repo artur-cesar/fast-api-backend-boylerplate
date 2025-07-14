@@ -1,30 +1,29 @@
-# docker-compose.yml
 version: "3.8"
 
 services:
-  {{ project_slug or "backend" }}-api:
+  {{ project_slug }}-api:
     build: .
-    container_name: {{ project_slug or "skeleton" }}-api
+    container_name: {{ project_slug }}-api
     volumes:
       - .:/code
     working_dir: /code 
     ports:
-      - "{{ api_port or 8000 }}:{{ api_port or 8000 }}"
+      - "{{ api_port }}:{{ api_port }}"
     depends_on:
       - db
     env_file:
       - .env
 
   db:
-    image: postgres:{{ postgres_version or "15" }}
-    container_name: {{ project_slug or "skeleton" }}-db
+    image: postgres:{{ postgres_version }}
+    container_name: {{ project_slug }}-db
     restart: always
     environment:
-      POSTGRES_USER: {{ db_user or "admin" }}
-      POSTGRES_PASSWORD: {{ db_password or "admin" }}
-      POSTGRES_DB: {{ db_name or "skeletondb" }}
+      POSTGRES_USER: {{ db_user }}
+      POSTGRES_PASSWORD: {{ db_password }}
+      POSTGRES_DB: {{ db_name }}
     ports:
-      - "{{ db_port or 5432 }}:5432"
+      - "{{ db_port }}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
