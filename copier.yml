@@ -1,7 +1,7 @@
 _output_dir: "{{ project_slug }}"
 project_slug:
   type: str
-  default: "meu-projeto"
+  default: "my-project"
   help: "snake_case to folders and imports"
 docker_image:
   type: str
